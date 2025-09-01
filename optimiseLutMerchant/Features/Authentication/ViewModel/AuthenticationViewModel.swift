@@ -166,7 +166,7 @@ class AuthenticationViewModel: ObservableObject {
 
         } catch {
             errorMessage =
-                "Failed to fetch merchant details: \(error.localizedDescription)"
+                "Failed to fetch merchant details Error: \(error.localizedDescription)"
         }
         isLoading = false
     }
