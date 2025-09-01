@@ -72,6 +72,7 @@ extension PayLanding {
 
             Button(action: {
                 // navigate to scan receipt
+                router.navigate(to: .payment(.scanReceipt))
             }) {
                 Text("Scan Receipt")
                     .font(.custom("Poppins-Semibold", size: 16))
