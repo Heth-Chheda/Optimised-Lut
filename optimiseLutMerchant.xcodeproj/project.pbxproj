@@ -1,0 +1,640 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		887810432E5C5FC000B45ED8 /* DatadogCore in Frameworks */ = {isa = PBXBuildFile; productRef = 887810422E5C5FC000B45ED8 /* DatadogCore */; };
+		887810452E5C5FC000B45ED8 /* DatadogCrashReporting in Frameworks */ = {isa = PBXBuildFile; productRef = 887810442E5C5FC000B45ED8 /* DatadogCrashReporting */; };
+		887810472E5C5FC000B45ED8 /* DatadogLogs in Frameworks */ = {isa = PBXBuildFile; productRef = 887810462E5C5FC000B45ED8 /* DatadogLogs */; };
+		887810492E5C5FC000B45ED8 /* DatadogObjc in Frameworks */ = {isa = PBXBuildFile; productRef = 887810482E5C5FC000B45ED8 /* DatadogObjc */; };
+		8878104B2E5C5FC000B45ED8 /* DatadogRUM in Frameworks */ = {isa = PBXBuildFile; productRef = 8878104A2E5C5FC000B45ED8 /* DatadogRUM */; };
+		887810542E5C723D00B45ED8 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 887810532E5C723D00B45ED8 /* SQLite */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		88780F112E5C468200B45ED8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88780EF82E5C468200B45ED8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88780EFF2E5C468200B45ED8;
+			remoteInfo = optimiseLutMerchant;
+		};
+		88780F1B2E5C468200B45ED8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88780EF82E5C468200B45ED8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88780EFF2E5C468200B45ED8;
+			remoteInfo = optimiseLutMerchant;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		88780F002E5C468200B45ED8 /* optimiseLutMerchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = optimiseLutMerchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		88780F102E5C468200B45ED8 /* optimiseLutMerchantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = optimiseLutMerchantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88780F1A2E5C468200B45ED8 /* optimiseLutMerchantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = optimiseLutMerchantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		88780F022E5C468200B45ED8 /* optimiseLutMerchant */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = optimiseLutMerchant;
+			sourceTree = "<group>";
+		};
+		88780F132E5C468200B45ED8 /* optimiseLutMerchantTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = optimiseLutMerchantTests;
+			sourceTree = "<group>";
+		};
+		88780F1D2E5C468200B45ED8 /* optimiseLutMerchantUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = optimiseLutMerchantUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88780EFD2E5C468200B45ED8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				887810542E5C723D00B45ED8 /* SQLite in Frameworks */,
+				887810452E5C5FC000B45ED8 /* DatadogCrashReporting in Frameworks */,
+				8878104B2E5C5FC000B45ED8 /* DatadogRUM in Frameworks */,
+				887810492E5C5FC000B45ED8 /* DatadogObjc in Frameworks */,
+				887810472E5C5FC000B45ED8 /* DatadogLogs in Frameworks */,
+				887810432E5C5FC000B45ED8 /* DatadogCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88780F0D2E5C468200B45ED8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88780F172E5C468200B45ED8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		88780EF72E5C468200B45ED8 = {
+			isa = PBXGroup;
+			children = (
+				88780F022E5C468200B45ED8 /* optimiseLutMerchant */,
+				88780F132E5C468200B45ED8 /* optimiseLutMerchantTests */,
+				88780F1D2E5C468200B45ED8 /* optimiseLutMerchantUITests */,
+				88780F012E5C468200B45ED8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		88780F012E5C468200B45ED8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88780F002E5C468200B45ED8 /* optimiseLutMerchant.app */,
+				88780F102E5C468200B45ED8 /* optimiseLutMerchantTests.xctest */,
+				88780F1A2E5C468200B45ED8 /* optimiseLutMerchantUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88780EFF2E5C468200B45ED8 /* optimiseLutMerchant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88780F242E5C468200B45ED8 /* Build configuration list for PBXNativeTarget "optimiseLutMerchant" */;
+			buildPhases = (
+				88780EFC2E5C468200B45ED8 /* Sources */,
+				88780EFD2E5C468200B45ED8 /* Frameworks */,
+				88780EFE2E5C468200B45ED8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				88780F022E5C468200B45ED8 /* optimiseLutMerchant */,
+			);
+			name = optimiseLutMerchant;
+			packageProductDependencies = (
+				887810422E5C5FC000B45ED8 /* DatadogCore */,
+				887810442E5C5FC000B45ED8 /* DatadogCrashReporting */,
+				887810462E5C5FC000B45ED8 /* DatadogLogs */,
+				887810482E5C5FC000B45ED8 /* DatadogObjc */,
+				8878104A2E5C5FC000B45ED8 /* DatadogRUM */,
+				887810532E5C723D00B45ED8 /* SQLite */,
+			);
+			productName = optimiseLutMerchant;
+			productReference = 88780F002E5C468200B45ED8 /* optimiseLutMerchant.app */;
+			productType = "com.apple.product-type.application";
+		};
+		88780F0F2E5C468200B45ED8 /* optimiseLutMerchantTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88780F272E5C468200B45ED8 /* Build configuration list for PBXNativeTarget "optimiseLutMerchantTests" */;
+			buildPhases = (
+				88780F0C2E5C468200B45ED8 /* Sources */,
+				88780F0D2E5C468200B45ED8 /* Frameworks */,
+				88780F0E2E5C468200B45ED8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88780F122E5C468200B45ED8 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				88780F132E5C468200B45ED8 /* optimiseLutMerchantTests */,
+			);
+			name = optimiseLutMerchantTests;
+			packageProductDependencies = (
+			);
+			productName = optimiseLutMerchantTests;
+			productReference = 88780F102E5C468200B45ED8 /* optimiseLutMerchantTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		88780F192E5C468200B45ED8 /* optimiseLutMerchantUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88780F2A2E5C468200B45ED8 /* Build configuration list for PBXNativeTarget "optimiseLutMerchantUITests" */;
+			buildPhases = (
+				88780F162E5C468200B45ED8 /* Sources */,
+				88780F172E5C468200B45ED8 /* Frameworks */,
+				88780F182E5C468200B45ED8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88780F1C2E5C468200B45ED8 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				88780F1D2E5C468200B45ED8 /* optimiseLutMerchantUITests */,
+			);
+			name = optimiseLutMerchantUITests;
+			packageProductDependencies = (
+			);
+			productName = optimiseLutMerchantUITests;
+			productReference = 88780F1A2E5C468200B45ED8 /* optimiseLutMerchantUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88780EF82E5C468200B45ED8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					88780EFF2E5C468200B45ED8 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					88780F0F2E5C468200B45ED8 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 88780EFF2E5C468200B45ED8;
+					};
+					88780F192E5C468200B45ED8 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 88780EFF2E5C468200B45ED8;
+					};
+				};
+			};
+			buildConfigurationList = 88780EFB2E5C468200B45ED8 /* Build configuration list for PBXProject "optimiseLutMerchant" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 88780EF72E5C468200B45ED8;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				887810412E5C5FC000B45ED8 /* XCRemoteSwiftPackageReference "dd-sdk-ios" */,
+				887810522E5C723D00B45ED8 /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 88780F012E5C468200B45ED8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88780EFF2E5C468200B45ED8 /* optimiseLutMerchant */,
+				88780F0F2E5C468200B45ED8 /* optimiseLutMerchantTests */,
+				88780F192E5C468200B45ED8 /* optimiseLutMerchantUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88780EFE2E5C468200B45ED8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88780F0E2E5C468200B45ED8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88780F182E5C468200B45ED8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88780EFC2E5C468200B45ED8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88780F0C2E5C468200B45ED8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88780F162E5C468200B45ED8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		88780F122E5C468200B45ED8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88780EFF2E5C468200B45ED8 /* optimiseLutMerchant */;
+			targetProxy = 88780F112E5C468200B45ED8 /* PBXContainerItemProxy */;
+		};
+		88780F1C2E5C468200B45ED8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88780EFF2E5C468200B45ED8 /* optimiseLutMerchant */;
+			targetProxy = 88780F1B2E5C468200B45ED8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		88780F222E5C468200B45ED8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		88780F232E5C468200B45ED8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88780F252E5C468200B45ED8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"optimiseLutMerchant/Preview Content\"";
+				DEVELOPMENT_TEAM = 8463ZTS7S5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Lüt-Merhcant";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.optimiseLutMerchant;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		88780F262E5C468200B45ED8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"optimiseLutMerchant/Preview Content\"";
+				DEVELOPMENT_TEAM = 8463ZTS7S5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Lüt-Merhcant";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.optimiseLutMerchant;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		88780F282E5C468200B45ED8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.optimiseLutMerchantTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/optimiseLutMerchant.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/optimiseLutMerchant";
+			};
+			name = Debug;
+		};
+		88780F292E5C468200B45ED8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.optimiseLutMerchantTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/optimiseLutMerchant.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/optimiseLutMerchant";
+			};
+			name = Release;
+		};
+		88780F2B2E5C468200B45ED8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.optimiseLutMerchantUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = optimiseLutMerchant;
+			};
+			name = Debug;
+		};
+		88780F2C2E5C468200B45ED8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.optimiseLutMerchantUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = optimiseLutMerchant;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88780EFB2E5C468200B45ED8 /* Build configuration list for PBXProject "optimiseLutMerchant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88780F222E5C468200B45ED8 /* Debug */,
+				88780F232E5C468200B45ED8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88780F242E5C468200B45ED8 /* Build configuration list for PBXNativeTarget "optimiseLutMerchant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88780F252E5C468200B45ED8 /* Debug */,
+				88780F262E5C468200B45ED8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88780F272E5C468200B45ED8 /* Build configuration list for PBXNativeTarget "optimiseLutMerchantTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88780F282E5C468200B45ED8 /* Debug */,
+				88780F292E5C468200B45ED8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88780F2A2E5C468200B45ED8 /* Build configuration list for PBXNativeTarget "optimiseLutMerchantUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88780F2B2E5C468200B45ED8 /* Debug */,
+				88780F2C2E5C468200B45ED8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		887810412E5C5FC000B45ED8 /* XCRemoteSwiftPackageReference "dd-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Datadog/dd-sdk-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.30.0;
+			};
+		};
+		887810522E5C723D00B45ED8 /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		887810422E5C5FC000B45ED8 /* DatadogCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 887810412E5C5FC000B45ED8 /* XCRemoteSwiftPackageReference "dd-sdk-ios" */;
+			productName = DatadogCore;
+		};
+		887810442E5C5FC000B45ED8 /* DatadogCrashReporting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 887810412E5C5FC000B45ED8 /* XCRemoteSwiftPackageReference "dd-sdk-ios" */;
+			productName = DatadogCrashReporting;
+		};
+		887810462E5C5FC000B45ED8 /* DatadogLogs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 887810412E5C5FC000B45ED8 /* XCRemoteSwiftPackageReference "dd-sdk-ios" */;
+			productName = DatadogLogs;
+		};
+		887810482E5C5FC000B45ED8 /* DatadogObjc */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 887810412E5C5FC000B45ED8 /* XCRemoteSwiftPackageReference "dd-sdk-ios" */;
+			productName = DatadogObjc;
+		};
+		8878104A2E5C5FC000B45ED8 /* DatadogRUM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 887810412E5C5FC000B45ED8 /* XCRemoteSwiftPackageReference "dd-sdk-ios" */;
+			productName = DatadogRUM;
+		};
+		887810532E5C723D00B45ED8 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 887810522E5C723D00B45ED8 /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 88780EF82E5C468200B45ED8 /* Project object */;
+}
