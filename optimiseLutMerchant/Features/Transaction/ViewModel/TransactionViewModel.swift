@@ -24,6 +24,7 @@ class TransactionViewModel: ObservableObject {
     // general
     @Published var errorMessage: String? = nil
     @Published var isLoading: Bool = false
+    @Published var declinedCode: String? = ""
 
     // amount
     @Published var amount: String = "0.00"
@@ -47,9 +48,13 @@ class TransactionViewModel: ObservableObject {
     // refund response
     @Published var refundResponse: TransactionRefundVoidResponse? = nil
     @Published var refundSuccess: Bool = false
-    
+
     // transaction label -- update to get transaction complete or void complete or refund complete
     @Published var transactionLabel: String? = nil
+
+    // scan reciepts
+    @Published var scanReceiptRefundResponse: RefundTransactionResponse? = nil
+    @Published var scanReceiptRefundSuccess: Bool = false
 
     // user defaults
     let transactionDefaults = TransactionUserDefaults()
@@ -137,9 +142,6 @@ class TransactionViewModel: ObservableObject {
                 loadMore = false
             }
         } catch {
-            print(
-                "TransactionViewModel => fetchTransactions => Failed to fetch transactions : \(error.localizedDescription)"
-            )
             DatadogLogging.error(
                 "TransactionViewModel => fetchTransactions => Failed to fetch transactions : \(error.localizedDescription)"
             )
@@ -172,8 +174,6 @@ class TransactionViewModel: ObservableObject {
                 amount: String(amountForPayment),
                 transactionId: transactionId
             )
-            
-            print(response)
 
             refundResponse = response
 
@@ -198,4 +198,86 @@ class TransactionViewModel: ObservableObject {
 
     }
 
+    // MARK: SCAN RECIEPTS
+    func handleRefundQrCode(
+        transactionId: String,
+        accessToken: String,
+        resetScanner: (() -> Void)? = nil
+    ) async {
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+
+            // decoding of the transaction Id from base 64
+            guard
+                let decodedTransactionIdData = Data(
+                    base64Encoded: transactionId),
+                let decodedTransactionIdString = String(
+                    data: decodedTransactionIdData, encoding: .utf8)
+            else {
+                errorMessage = "Invalid transaction id."
+                return
+            }
+
+            // repo call
+            let handleRefundQrCodeResponse =
+                try await transactionRepository.getPaymentForRefund(
+                    accessToken: accessToken,
+                    transactionId: decodedTransactionIdString
+                )
+
+            scanReceiptRefundResponse = handleRefundQrCodeResponse
+
+            // Things to change on success
+            /*
+             1. selected transaction for transaction detail view
+             2. transaction label for the detail view title
+             3. onFailure update the declined code which will be the code for payment declined.
+             */
+            if handleRefundQrCodeResponse.code == "1" {
+                // setting up the varibles
+                errorMessage = nil
+                scanReceiptRefundSuccess = true
+                selectedTransaction = handleRefundQrCodeResponse.responseObject
+
+                // transactionLabel
+                switch (
+                    handleRefundQrCodeResponse.responseObject?.refundable,
+                    handleRefundQrCodeResponse.responseObject?.voided
+                ) {
+                case (true, _):
+                    transactionLabel = "Refundable"
+
+                case (false, true):
+                    transactionLabel = "Voided"
+
+                default:
+                    transactionLabel = "None"
+                }
+
+                declinedCode = nil
+
+            } else {
+
+                scanReceiptRefundSuccess = false
+
+                errorMessage =
+                    handleRefundQrCodeResponse.message
+                    ?? "Something went wrong. Please try again later."
+
+                // update the declined code.
+                declinedCode = handleRefundQrCodeResponse.code
+            }
+
+        } catch {
+            scanReceiptRefundSuccess = false
+            declinedCode = "500"
+            selectedTransaction = nil
+            errorMessage = "Something went wrong. Please try again later."
+            DatadogLogging.error(
+                "TransactionViewModel => handleRefundQrCode => Something went wrong. \(error)"
+            )
+        }
+    }
 }

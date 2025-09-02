@@ -28,7 +28,7 @@ extension ScanReciept {
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: UIScreen.main.bounds.width * 0.7)
 
-                if !errorMessage.isEmpty {
+                if let errorMessage = transactionViewModel.errorMessage {
                     Text(errorMessage)
                         .font(.system(size: 14, weight: .regular))
                         .foregroundColor(.red)
@@ -45,6 +45,7 @@ extension ScanReciept {
                 router.navigateBack()
             }
             .safeAreaPadding(.bottom)
+            .padding(.bottom, 16)
         }
         .ignoresSafeArea()
         .padding(.horizontal)
@@ -54,7 +55,13 @@ extension ScanReciept {
         ZStack {
             // qr scanner
             QRScannerView { code in
-                scannedCode = code // this is the scanned code or the response that we will get after scannig the qr code.
+
+                Task {
+                    await transactionViewModel.handleRefundQrCode(
+                        transactionId: code,
+                        accessToken: authenticationViewModel.accessToken ?? ""
+                    )
+                }
             }
             .frame(
                 width: UIScreen.main.bounds.width * 0.7,

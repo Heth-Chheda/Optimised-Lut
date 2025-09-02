@@ -10,11 +10,8 @@ import SwiftUI
 struct ScanReciept: View {
 
     @EnvironmentObject var router: Router
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
     @EnvironmentObject var transactionViewModel: TransactionViewModel
-    
-    // local variables
-    @State var errorMessage: String = "jsgfksahfkshfksgksaskghds"
-    @State var scannedCode: String?
 
     var body: some View {
         ZStack {
@@ -26,9 +23,15 @@ struct ScanReciept: View {
                 scanRecieptView
             }
         }
+        .onChange(of: transactionViewModel.scanReceiptRefundSuccess) { oldValue, newValue in
+            if newValue {
+                router.navigate(to: .payment(.transactionDetail))
+            } else {
+                router.navigate(to: .payment(.paymentFailure))
+            }
+        }
     }
 }
-
 
 #Preview {
     ScanReciept()

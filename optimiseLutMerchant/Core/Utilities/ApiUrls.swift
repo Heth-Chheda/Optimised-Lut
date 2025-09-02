@@ -43,6 +43,9 @@ class ApiUrls {
     /// Endpoint to retrieve payment transaction details
     static let endPointGetPaymentTransaction = "getPaymentTransactions"
     
+    /// Endpoint for refund payment transaction using scan reciepts
+    static let endPointGetPaymentTransactionForRefund = "getPaymentTransactionForRefund"
+    
     /// Endpoint to create a void transaction
     static let endPointCreateVoid = "voids"
     

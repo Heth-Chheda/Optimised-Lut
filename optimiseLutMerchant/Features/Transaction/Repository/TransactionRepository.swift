@@ -20,6 +20,11 @@ protocol TransactionRepositoryProtocol {
         accessToken: String, referenceTransactionId: String, amount: String,
         transactionId: String
     ) async throws -> TransactionRefundVoidResponse
+
+    func getPaymentForRefund(
+        accessToken: String,
+        transactionId: String
+    ) async throws -> RefundTransactionResponse
 }
 
 class TransactionRepository: BaseRepository, ObservableObject,
@@ -65,8 +70,6 @@ class TransactionRepository: BaseRepository, ObservableObject,
 
         let refundTransactionUrl =
             "\(ApiUrls.baseUrl)/\(ApiUrls.endPointCreateRefund)"
-        
-        print(refundTransactionUrl)
 
         let body: [String: Any] = [
             "type": "refund",
@@ -75,9 +78,7 @@ class TransactionRepository: BaseRepository, ObservableObject,
             "payment": "creditcard",
             "amount": amount,
         ]
-        
-        print(body)
-        
+
         DatadogLogging.info(
             "TransactionRepository ==> refundTransaction ==> Initiating refund for Transaction ID: \(transactionId)"
         )
@@ -90,5 +91,24 @@ class TransactionRepository: BaseRepository, ObservableObject,
             responseType: TransactionRefundVoidResponse.self
         )
 
+    }
+
+    // MARK: SCAN RECIEPTS
+    func getPaymentForRefund(
+        accessToken: String,
+        transactionId: String
+    ) async throws -> RefundTransactionResponse {
+
+        /// Note: The transaction Id should be decoded. Should be handled in the TransactionViewModel.
+
+        let getPaymentForRefundUrl =
+            "\(ApiUrls.baseUrl)/\(ApiUrls.endPointGetPaymentTransactionForRefund)?transactionId=\(transactionId)"
+
+        return try await performRequest(
+            url: getPaymentForRefundUrl,
+            method: .get,
+            accessToken: accessToken,
+            responseType: RefundTransactionResponse.self
+        )
     }
 }
