@@ -13,8 +13,8 @@ class AuthenticationViewModel: ObservableObject {
 
     // MARK: - PROPERTIES
     /// - Parameter - Login
-    @Published var username: String = "johnsmith@gmail.com"
-    @Published var password: String = "Admin@123"
+    @Published var username: String = ""
+    @Published var password: String = ""
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     @Published var loginResponseCode: Int?

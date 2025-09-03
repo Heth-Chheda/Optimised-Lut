@@ -47,6 +47,9 @@ struct TransactionNavigation: View {
                 
             case .transactionComplete:
                 TransactionComplete()
+                
+            case .paymentFailure:
+                PaymentDeclined()
             }
         }
     }

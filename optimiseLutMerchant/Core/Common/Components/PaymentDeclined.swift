@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct PaymentDeclined: View {
-    var onClose: () -> Void
-    var declinedCode: String
+    @EnvironmentObject var router: Router
+    @EnvironmentObject var transactionViewModel: TransactionViewModel
+
+    @State private var declinedCode: String? = ""
 
     // Centralized sizing constants
     private var textSize: CGFloat { UIScreen.main.bounds.width * 0.06 }
@@ -30,8 +32,9 @@ struct PaymentDeclined: View {
         "411": "Transaction Error – please quit and relaunch the app",
         "413": "Merchant transaction limit reached",
         "414": "Card number is invalid.",
-        "421": "We were unable to process the transaction. If the issue persists, please contact Lüt support.",
-        "441": "Transaction failed."
+        "421":
+            "We were unable to process the transaction. If the issue persists, please contact Lüt support.",
+        "441": "Transaction failed.",
     ]
 
     var body: some View {
@@ -42,7 +45,9 @@ struct PaymentDeclined: View {
                 // Close button
                 HStack {
                     Spacer()
-                    Button(action: onClose) {
+                    Button(action: {
+                        router.navigateBack()
+                    }) {
                         Image("close")
                             .resizable()
                             .frame(width: 29, height: 29)
@@ -69,28 +74,32 @@ struct PaymentDeclined: View {
                     .padding(.bottom, 20)
 
                 // Declined Code message
-                Text("Transaction could not be processed. \nDeclined code: \(declinedCode)")
-                    .font(.custom("Poppins", size: textSize * 0.88))
-                    .foregroundColor(.white)
-                    .lineSpacing(lineHeight - textSize * 1.8)
-                    .frame(maxWidth: tryAgainBoxWidth, alignment: .leading)
-                    .padding(.bottom, 12)
+                Text(
+                    "Transaction could not be processed. \nDeclined code: \(declinedCode ?? "")"
+                )
+                .font(.custom("Poppins", size: textSize * 0.88))
+                .foregroundColor(.white)
+                .lineSpacing(lineHeight - textSize * 1.8)
+                .frame(maxWidth: tryAgainBoxWidth, alignment: .leading)
+                .padding(.bottom, 12)
 
                 // Error Message from dictionary
-                Text(declineMessages[declinedCode] ?? "Unknown error occurred.")
-                    .font(.custom("Poppins", size: textSize * 0.85))
-                    .foregroundColor(.white)
-                    .lineSpacing(lineHeight - textSize * 1.8)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: tryAgainBoxWidth, alignment: .leading)
+                Text(
+                    declineMessages[declinedCode ?? ""]
+                        ?? "Unknown error occurred."
+                )
+                .font(.custom("Poppins", size: textSize * 0.85))
+                .foregroundColor(.white)
+                .lineSpacing(lineHeight - textSize * 1.8)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: tryAgainBoxWidth, alignment: .leading)
 
                 Spacer()
             }
             .frame(width: UIScreen.main.bounds.width * 0.8)
         }
+        .onAppear {
+            declinedCode = transactionViewModel.declinedCode
+        }
     }
-}
-
-#Preview {
-    PaymentDeclined(onClose: {}, declinedCode: "204")
 }

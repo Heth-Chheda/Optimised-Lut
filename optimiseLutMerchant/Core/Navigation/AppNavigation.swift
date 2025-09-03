@@ -32,6 +32,7 @@ final class Router: ObservableObject {
         case processRefundAmount
         case confirmRefund
         case transactionComplete
+        case paymentFailure
     }
 
     func setRoot(to destination: AuthenticationFlow) {
