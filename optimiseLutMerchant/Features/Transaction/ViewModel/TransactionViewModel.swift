@@ -198,6 +198,54 @@ class TransactionViewModel: ObservableObject {
 
     }
 
+    // MARK: VOID TRANSACTION
+    func performVoidTransaction(
+        accessToken: String,
+        transactionId: String,
+        referenceTransactionId: String
+    ) async {
+        /*
+         1. Setting refund success to false initially to avoid conflicts
+         2. refund response to nil (disposing if previously user had a refund to avoid conflicts)
+         3. error message to nil
+         */
+        refundSuccess = false
+        refundResponse = nil
+        errorMessage = nil
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+
+            let voidResponse = try await transactionRepository.voidTransaction(
+                accessToken: accessToken,
+                referenceTransactionId: referenceTransactionId,
+                transactionId: transactionId
+            )
+
+            refundResponse = voidResponse
+
+            switch voidResponse.response {
+            case 1:
+                errorMessage = "Void processed successfully."
+                transactionLabel = "Void"
+                refundSuccess = true
+
+            default:
+                errorMessage = voidResponse.responseText
+                refundSuccess = false
+            }
+
+        } catch {
+            DatadogLogging.error(
+                "TransactionViewModel => performVoidTransaction => error: \(error.localizedDescription)"
+            )
+            refundSuccess = false
+            errorMessage = "Something went wrong. Please try again later."
+        }
+
+    }
+
     // MARK: SCAN RECIEPTS
     func handleRefundQrCode(
         transactionId: String,

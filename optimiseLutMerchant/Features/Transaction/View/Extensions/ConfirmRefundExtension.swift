@@ -42,7 +42,15 @@ extension ConfirmRefundOrVoid {
 
         // generate the transaction id
         let newVoidTransactionId = generateTransactionId()
-        print(newVoidTransactionId)
+
+        Task {
+            await transactionViewModel.performVoidTransaction(
+                accessToken: authenticationViewModel.accessToken ?? "",
+                transactionId: newVoidTransactionId,
+                referenceTransactionId: transactionViewModel
+                    .referenceTransaction?.transactionId ?? ""
+            )
+        }
 
     }
 
@@ -50,7 +58,6 @@ extension ConfirmRefundOrVoid {
 
         // generate the transaction id
         let newRefundTransactionId = generateTransactionId()
-        print(newRefundTransactionId)
 
         Task {
             await transactionViewModel.performRefundTransaction(
