@@ -26,15 +26,32 @@ struct ConfirmRefundOrVoid: View {
 
                 Spacer()
             }
+
+            if transactionViewModel.isLoading {
+
+                ZStack {
+                    Color.black.ignoresSafeArea(.all)
+
+                    ProgressView()
+                        .progressViewStyle(
+                            CircularProgressViewStyle(tint: .purple)
+                        )
+                        .scaleEffect(2)
+                }
+
+            }
         }
         .onChange(of: transactionViewModel.refundSuccess) {
             oldValue, newValue in
             let success = newValue
 
             if success {
-                transactionViewModel.refundSuccess = false // setting it false, for showing the complete screen for next transactions
+                transactionViewModel.refundSuccess = false  // setting it false, for showing the complete screen for next transactions
                 router.navigate(to: .payment(.transactionComplete))
             }
+        }
+        .onChange(of: transactionViewModel.errorMessage) { oldValue, newValue in
+            errorMesssage = newValue
         }
     }
 }

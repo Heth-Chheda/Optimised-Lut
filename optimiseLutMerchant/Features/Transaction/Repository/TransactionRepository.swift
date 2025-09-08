@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: PROTOCOL
 protocol TransactionRepositoryProtocol {
     func getMerchantTipsAndSurchargeDetails(
         accessToken: String
@@ -25,6 +26,12 @@ protocol TransactionRepositoryProtocol {
         accessToken: String,
         transactionId: String
     ) async throws -> RefundTransactionResponse
+    
+    func voidTransaction(
+        accessToken: String, referenceTransactionId: String,
+        transactionId: String
+    ) async throws -> TransactionRefundVoidResponse
+        
 }
 
 class TransactionRepository: BaseRepository, ObservableObject,
@@ -90,6 +97,40 @@ class TransactionRepository: BaseRepository, ObservableObject,
             body: body,
             responseType: TransactionRefundVoidResponse.self
         )
+    }
+    
+    // MARK: VOID TRANSACTION
+    func voidTransaction(
+        accessToken: String,
+        referenceTransactionId: String,
+        transactionId: String
+    ) async throws -> TransactionRefundVoidResponse {
+        
+        let voidTransactionUrl = "\(ApiUrls.baseUrl)/\(ApiUrls.endPointCreateVoid)"
+        
+        let body: [String: Any] = [
+            "type": "void",
+            "transaction_id": transactionId,
+            "reference_transaction_id": referenceTransactionId,
+            "void_reason": "",
+            "payment": "creditcard",
+        ]
+        
+        DatadogLogging.info(
+            "TransactionRepository ==> refundTransaction ==> Initiating void for Transaction ID: \(transactionId)"
+        )
+        
+        let response = try await performRequest(
+            url: voidTransactionUrl,
+            method: .post,
+            accessToken: accessToken,
+            body: body,
+            responseType: TransactionRefundVoidResponse.self
+        )
+        
+        print(response)
+        
+        return response;
 
     }
 

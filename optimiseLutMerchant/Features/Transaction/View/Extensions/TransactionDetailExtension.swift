@@ -158,6 +158,22 @@ extension TransactionDetail {
                 if canVoid {
                     Button {
                         // navigate to confirm void
+                        /*
+                         Things to change for voiding the transaction
+                         1. transaction type
+                         2. navigate to confirm refund and void.
+                         3. transactionViewModel.referenceTransaction should hold the value of selectedTransaction
+                         4. Update the amountForPayment
+                         5. at last navigate to the next screen.
+                         */
+                        transactionViewModel.transactiontype = "Void"
+                        
+                        transactionViewModel.referenceTransaction = transactionViewModel.selectedTransaction
+                        
+                        transactionViewModel.amountForPayment = transactionViewModel.selectedTransaction?.amount ?? 0.0
+                        
+                        router.navigate(to: .payment(.confirmRefund))
+                        
                     } label: {
                         Text("Void Transaction")
                             .frame(minWidth: 179, minHeight: 43)
