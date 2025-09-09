@@ -35,7 +35,15 @@ extension ScanReciept {
                         .padding()
                 }
 
-                qrCodeBox
+                QRCodeBox { code in
+                    Task {
+                        await transactionViewModel.handleRefundQrCode(
+                            transactionId: code,
+                            accessToken: authenticationViewModel.accessToken
+                                ?? ""
+                        )
+                    }
+                }
 
             }
 
@@ -49,41 +57,6 @@ extension ScanReciept {
         }
         .ignoresSafeArea()
         .padding(.horizontal)
-    }
-
-    private var qrCodeBox: some View {
-        ZStack {
-            // qr scanner
-            QRScannerView { code in
-
-                Task {
-                    await transactionViewModel.handleRefundQrCode(
-                        transactionId: code,
-                        accessToken: authenticationViewModel.accessToken ?? ""
-                    )
-                }
-            }
-            .frame(
-                width: UIScreen.main.bounds.width * 0.7,
-                height: UIScreen.main.bounds.width * 0.7
-            )
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-
-            // qr code box
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(
-                    Color(
-                        red: 151 / 255.0,
-                        green: 71 / 255.0,
-                        blue: 255 / 255.0
-                    ),
-                    lineWidth: 3
-                )
-                .frame(
-                    width: UIScreen.main.bounds.width * 0.7,
-                    height: UIScreen.main.bounds.width * 0.7
-                )
-        }
     }
 }
 

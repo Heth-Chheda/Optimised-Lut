@@ -40,6 +40,7 @@ extension PayLanding {
 
             Button(action: {
                 // Open the scanner view for online order
+                router.navigate(to: .payment(.webWidgetScanner))
             }) {
                 Image("onlineOrder")
                     .resizable()

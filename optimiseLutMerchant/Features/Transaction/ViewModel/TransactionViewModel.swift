@@ -252,6 +252,16 @@ class TransactionViewModel: ObservableObject {
         accessToken: String,
         resetScanner: (() -> Void)? = nil
     ) async {
+        /*
+         Setting variables to default to avoid conflicts -- reusing the functions for web widget
+         1. error message
+         2. scanrecieptRefundSuccess
+         3. selectedTransaction -- (this should be cleared) (highly neccessary)
+         */
+        errorMessage = nil
+        scanReceiptRefundSuccess = false
+        selectedTransaction = nil
+        
         isLoading = true
         defer { isLoading = false }
 

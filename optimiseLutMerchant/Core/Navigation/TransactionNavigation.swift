@@ -50,6 +50,9 @@ struct TransactionNavigation: View {
                 
             case .paymentFailure:
                 PaymentDeclined()
+                
+            case .webWidgetScanner:
+                ScanningQR()
             }
         }
     }
