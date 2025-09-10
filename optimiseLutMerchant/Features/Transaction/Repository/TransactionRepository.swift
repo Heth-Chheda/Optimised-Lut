@@ -26,12 +26,17 @@ protocol TransactionRepositoryProtocol {
         accessToken: String,
         transactionId: String
     ) async throws -> RefundTransactionResponse
-    
+
     func voidTransaction(
         accessToken: String, referenceTransactionId: String,
         transactionId: String
     ) async throws -> TransactionRefundVoidResponse
-        
+
+    func releaseTransaction(
+        accessToken: String,
+        transactionId: String
+    ) async throws -> TransactionRefundVoidResponse
+
 }
 
 class TransactionRepository: BaseRepository, ObservableObject,
@@ -98,16 +103,17 @@ class TransactionRepository: BaseRepository, ObservableObject,
             responseType: TransactionRefundVoidResponse.self
         )
     }
-    
+
     // MARK: VOID TRANSACTION
     func voidTransaction(
         accessToken: String,
         referenceTransactionId: String,
         transactionId: String
     ) async throws -> TransactionRefundVoidResponse {
-        
-        let voidTransactionUrl = "\(ApiUrls.baseUrl)/\(ApiUrls.endPointCreateVoid)"
-        
+
+        let voidTransactionUrl =
+            "\(ApiUrls.baseUrl)/\(ApiUrls.endPointCreateVoid)"
+
         let body: [String: Any] = [
             "type": "void",
             "transaction_id": transactionId,
@@ -115,11 +121,11 @@ class TransactionRepository: BaseRepository, ObservableObject,
             "void_reason": "",
             "payment": "creditcard",
         ]
-        
+
         DatadogLogging.info(
             "TransactionRepository ==> refundTransaction ==> Initiating void for Transaction ID: \(transactionId)"
         )
-        
+
         let response = try await performRequest(
             url: voidTransactionUrl,
             method: .post,
@@ -127,10 +133,8 @@ class TransactionRepository: BaseRepository, ObservableObject,
             body: body,
             responseType: TransactionRefundVoidResponse.self
         )
-        
-        print(response)
-        
-        return response;
+
+        return response
 
     }
 
@@ -150,6 +154,23 @@ class TransactionRepository: BaseRepository, ObservableObject,
             method: .get,
             accessToken: accessToken,
             responseType: RefundTransactionResponse.self
+        )
+    }
+
+    // MARK: RELEASE TRANSACTION
+    func releaseTransaction(
+        accessToken: String,
+        transactionId: String
+    ) async throws -> TransactionRefundVoidResponse {
+
+        let releaseTransactionUrl =
+            "\(ApiUrls.baseUrl)/\(ApiUrls.endPointReleaseTransaction)?transactionId=\(transactionId)"
+
+        return try await performRequest(
+            url: releaseTransactionUrl,
+            method: .post,
+            accessToken: accessToken,
+            responseType: TransactionRefundVoidResponse.self
         )
     }
 }
