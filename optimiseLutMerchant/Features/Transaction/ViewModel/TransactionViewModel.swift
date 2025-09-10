@@ -261,7 +261,7 @@ class TransactionViewModel: ObservableObject {
         errorMessage = nil
         scanReceiptRefundSuccess = false
         selectedTransaction = nil
-        
+
         isLoading = true
         defer { isLoading = false }
 
@@ -337,5 +337,51 @@ class TransactionViewModel: ObservableObject {
                 "TransactionViewModel => handleRefundQrCode => Something went wrong. \(error)"
             )
         }
+    }
+
+    // MARK: COMPLETE THE TRANSACTION
+    func completeTransaction(
+        accessToken: String,
+        transactionId: String
+    ) async {
+
+        /*
+         We will be using the refund response for this as after success we will navigate to transaction complete screen which uses the refund response.
+         */
+
+        errorMessage = nil
+        refundResponse = nil
+        refundSuccess = false
+
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+
+            let completeTransactionResponse =
+                try await transactionRepository.releaseTransaction(
+                    accessToken: accessToken,
+                    transactionId: transactionId
+                )
+            
+            refundResponse = completeTransactionResponse
+            
+            switch completeTransactionResponse.response {
+            case 1:
+                errorMessage = "Transaction released successfully."
+                transactionLabel = "Void" // change it according to label that we need to show on the transaction complete screen.
+                refundSuccess = true
+                
+            default:
+                errorMessage = completeTransactionResponse.responseText
+                refundSuccess = false
+            }
+
+        } catch {
+            errorMessage = "Something went wrong. Please try again later."
+            DatadogLogging.error(
+                "TransactionViewModel => completeTransaction => \(error)")
+        }
+
     }
 }
